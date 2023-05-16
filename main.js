@@ -1,15 +1,55 @@
-const { app, BrowserWindow } = require('electron')
+const { app, screen, BrowserWindow } = require('electron')
+
+let menuWindow;
 
 const createWindow = () => {
+
+  const primaryDisplay = screen.getPrimaryDisplay()
+  const { width, height } = primaryDisplay.workAreaSize
+
   const win = new BrowserWindow({
-    width: 1200,
-    height: 1080,
+    width,
+    height,
     closable: true, // false prevents quitting too !
     // fullscreen: true,
-    kiosk: true,
+    // kiosk: true,
   })
 
-  win.loadFile('index.html')
+  menuWindow = win;
+
+  win.loadFile('Index.html')
+
+
+  win.webContents.on('will-navigate', function(e, url) {
+    e.preventDefault();
+    openSite(url);
+
+  });
+
+}
+
+function openSite(url) {
+
+  const primaryDisplay = screen.getPrimaryDisplay()
+  const { width, height } = primaryDisplay.workAreaSize
+
+  const child = new BrowserWindow({ 
+    parent: menuWindow ,
+    // modal: true, 
+    show: false ,
+    width,
+    height,
+    closable: true,
+
+
+  
+  })
+  child.loadURL(url)
+
+  child.once('ready-to-show', () => {
+    child.show()
+  })
+
 }
 
 app.whenReady().then(() => {

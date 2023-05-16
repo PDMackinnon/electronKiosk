@@ -10,12 +10,57 @@
       http-equiv="X-Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
-    <title>Hello from Electron renderer!</title>
+    <link rel="stylesheet" href="./App.css" />
+
+    <title>DJCAD Kiosk</title>
   </head>
   <body>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
-    <p id="info"></p>
+    <div class="menu">
+      <!-- this is the menu grid -->
+
+      <!-- each menuItem is to be edited with own image and name and url as required-->
+    
+     
+      <div class="menuItem">
+        <a class="menuLink" href="https://www.bbc.co.uk/">
+          <img src="./Images/1.jpg" alt="item 1" />
+          <h3>Student 1</h3>
+        </a>
+
+      </div>
+      <div class="menuItem">
+        <a class="menuLink" href="https://www.bbc.co.uk/">
+          <img src="./Images/2.jpg" alt="item 2" />
+          <h3>Student 2</h3>
+        </a>
+      </div>
+      <div class="menuItem">
+        <a class="menuLink" href="https://www.bbc.co.uk/">
+          <img src="./Images/3.jpg" alt="item 3" />
+          <h3>Student 3</h3>
+        </a>
+
+      </div>
+      
+      <div class="menuItem">
+        <a class="menuLink" href="https://www.bbc.co.uk/">
+          <img src="./Images/4.png" alt="item 4" />
+          <h3>Student 4</h3>
+        </a>
+      </div>
+      <div class="menuItem">
+        <a class="menuLink" href="https://www.bbc.co.uk/">
+          <img src="./Images/5.jpg" alt="item 5" />
+          <h3>Student 5</h3>
+        </a>
+      </div>
+      <div class="menuItem">
+        <a class="menuLink" href="https://www.bbc.co.uk/">
+          <img src="./Images/6.jpg" alt="item 6" />
+          <h3>Student 6</h3>
+        </a>
+      </div>
+    </div>
   </body>
   <script src="./renderer.js"></script>
 </html>
